@@ -3,14 +3,36 @@
 export const projects = [
   {
     id: 0,
-    title: 'Notepad App',
+    title: 'ArtistHub',
     description:
-      'A user-friendly note-taking application leveraging Java and Google Firebase.',
-    stack: ['Java', 'Google Firebase', 'Android Studio'],
-    links: [],
+      'A web application developed during my internship at MTB Solutions, integrating LLM-based chatbot.',
+    stack: [
+      'Next.js',
+      'TypeScript',
+      'Express.js',
+      'MongoDB',
+      'LangChain',
+      'LangGraph',
+      'LLM Model',
+    ],
+    links: ['https://artist-hub-lfje.vercel.app/'],
   },
   {
     id: 1,
+    title: 'SplitIT',
+    description:
+      'Developed Splitit, a seamless expense-splitting app that allows users to effortlessly divide and track shared costs among friends or groups',
+    stack: [
+      'Next.js',
+      'TypeScript',
+      'Convex',
+      'Clerk',
+      'Tailwind CSS',
+    ],
+    links: ['https://split-it-8w5l.vercel.app/'],
+  },
+  {
+    id: 2,
     title: 'Plagiarism WebApp',
     description:
       'A web application that detects plagiarism in LeetCode contests.',
@@ -22,26 +44,18 @@ export const projects = [
       'Express.js',
       'Puppeteer API',
     ],
-    links: [],
-  },
-  {
-    id: 2,
-    title: 'Rythemecca',
-    description:
-      'A web application developed during my internship at MTB Solutions, integrating LLM-based chatbot.',
-    stack: [
-      'React.js',
-      'Node.js',
-      'Express.js',
-      'MongoDB',
-      'LangChain',
-      'LangGraph',
-      'LLM Model',
-    ],
-    links: [],
+    links: ['https://github.com/amey1234444/leetcode-plagiarism-checker'],
   },
   {
     id: 3,
+    title: 'Notepad App',
+    description:
+      'A user-friendly note-taking application leveraging Java and Google Firebase.',
+    stack: ['Java', 'Google Firebase', 'Android Studio'],
+    links: [],
+  },
+  {
+    id: 4,
     title: 'Facial Emotion Detection',
     description:
       'A facial emotion detection system using Python OpenCV and Kaggle dataset.',
@@ -49,7 +63,7 @@ export const projects = [
     links: [],
   },
   {
-    id: 4,
+    id: 5,
     title: 'Stock Market Circular Fraud Detection',
     description:
       'A system for detecting stock market circular fraud using graph techniques.',
