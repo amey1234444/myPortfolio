@@ -46,9 +46,4 @@ Page contents provided by Github, Raindrop, and rss2json APIs.
 - [SWR](https://swr.vercel.app/)
 - [Framer Motion](https://www.framer.com/motion/)
 
-## Author
 
-- [Github](https://github.com/aycanogut)
-- [LinkedIn](https://www.linkedin.com/in/aycanogut/)
-- [Twitter](https://www.twitter.com/bleedeleventh)
-- [Medium](https://medium.com/@aycanogut)
