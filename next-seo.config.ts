@@ -1,30 +1,17 @@
 import { DefaultSeoProps } from 'next-seo'
 
 const SEO: DefaultSeoProps = {
-  title: 'aycan.dev',
-  description: 'The portfolio website of Aycan Öğüt, a software developer.',
+  title: 'Amey Bhagwatkar · Full-stack Developer',
+  description:
+    'Full-stack developer and competitive programmer based in Pune, India.',
   openGraph: {
-    url: 'https://www.aycan.dev',
-    title: 'aycan.dev',
-    description: 'The portfolio website of Aycan Öğüt, a software developer.',
+    url: 'https://notamey.vercel.app',
+    title: 'Amey Bhagwatkar',
+    description: 'Thoughtful code. Real-world impact.',
     type: 'website',
-    locale: 'en_IE',
-    images: [
-      {
-        url: 'https://user-images.githubusercontent.com/74212439/199986276-7c72cb14-1e54-4dc0-a355-a1f6ad7b9d18.png',
-        width: 800,
-        height: 600,
-        alt: 'aycan.dev thumbnail image',
-        type: 'image/png',
-      },
-    ],
-    siteName: 'aycan.dev',
+    locale: 'en_IN',
+    siteName: 'Amey Bhagwatkar',
   },
-  twitter: {
-    handle: '@bleedeleventh',
-    site: '@bleedeleventh',
-    cardType: 'summary_large_image',
-  },
+  twitter: { cardType: 'summary' },
 }
-
 export default SEO

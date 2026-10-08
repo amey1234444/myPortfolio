@@ -1,57 +1,70 @@
-import { Grid, Group, Title, useMantineTheme } from '@mantine/core'
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
+import { useState } from 'react'
 
 import Layout from '../../components/Layout/Layout'
-import Loader from '../../components/Loader/Loader'
+import { Arrow, PageIntro } from '../../components/Portfolio/Elements'
+import ProjectCard from '../../components/Portfolio/ProjectCard'
+import { profile } from '../../data/portfolio'
 import { projects } from '../../data/projects'
-import { IProjectProps } from '../../interfaces/Project.interface'
 
-const Project = dynamic(() => import('../../components/Project/Project'))
-
-const Projects = () => {
-  const theme = useMantineTheme()
-
-  if (!projects) return <Loader />
-
+const filters = ['All projects', 'Full stack', 'AI & data', 'Mobile']
+export default function Projects() {
+  const [filter, setFilter] = useState('All projects')
+  const filtered = projects.filter(
+    (project) => filter === 'All projects' || project.category === filter
+  )
   return (
     <Layout>
-      <Group position="apart" mb={30}>
-        <Title order={1}>Projects</Title>
-        <Title order={2}>
-          <Link
-            href="projects/repos"
-            prefetch={false}
-            tabIndex={0}
-            role="link"
-            style={{
-              textDecoration: 'none',
-              color:
-                theme.colorScheme === 'dark'
-                  ? theme.colors.yellow[4]
-                  : theme.colors.dark[8],
-            }}
+      <div className="container page-content">
+        <PageIntro
+          label="THE PROJECT INDEX / 01"
+          title={
+            <>
+              Built to <span className="serif">do something.</span>
+            </>
+          }
+          description="A collection of applications, experiments, and ideas brought to life through code. Explore the thinking and the technology behind each one."
+        />
+        <div className="project-controls">
+          <div className="filters" role="group" aria-label="Filter projects">
+            {filters.map((item) => (
+              <button
+                type="button"
+                key={item}
+                aria-pressed={filter === item}
+                onClick={() => setFilter(item)}
+              >
+                {item}
+                <span>
+                  {item === 'All projects'
+                    ? projects.length
+                    : projects.filter((project) => project.category === item)
+                        .length}
+                </span>
+              </button>
+            ))}
+          </div>
+          <a
+            className="text-link"
+            href={profile.github}
+            target="_blank"
+            rel="noreferrer"
           >
-            Github Repos
-          </Link>
-        </Title>
-      </Group>
-      <Grid gutter="xl" grow>
-        {projects.map((project: IProjectProps) => (
-          <Grid.Col span={12} xs={6} key={project.id}>
-            <Project
-              id={project.id}
-              image={project.image}
-              title={project.title}
-              description={project.description}
-              stack={project.stack}
-              links={project.links}
-            />
-          </Grid.Col>
-        ))}
-      </Grid>
+            GitHub <Arrow diagonal />
+          </a>
+        </div>
+        <p className="sr-only" role="status">
+          Showing {filtered.length} projects
+        </p>
+        <div className="project-grid" key={filter}>
+          {filtered.map((project) => (
+            <ProjectCard key={project.id} project={project} />
+          ))}
+        </div>
+        <p className="project-note">
+          Project artwork is an illustrative concept, not a screenshot of the
+          deployed application.
+        </p>
+      </div>
     </Layout>
   )
 }
-
-export default Projects

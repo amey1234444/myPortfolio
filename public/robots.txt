@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://notamey.vercel.app/sitemap.xml

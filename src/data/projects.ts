@@ -1,11 +1,21 @@
-// // projects api data
+export type ProjectCategory = 'Full stack' | 'AI & data' | 'Mobile'
+export interface PortfolioProject {
+  id: number
+  title: string
+  description: string
+  stack: string[]
+  links: string[]
+  category: ProjectCategory
+  kind: string
+  detail: string
+  visual: string
+}
 
-export const projects = [
+export const projects: PortfolioProject[] = [
   {
     id: 0,
     title: 'ArtistHub',
-    description:
-      'A web application developed during my internship at MTB Solutions, integrating LLM-based chatbot.',
+    description: 'A creative platform with a conversational layer.',
     stack: [
       'Next.js',
       'TypeScript',
@@ -13,206 +23,79 @@ export const projects = [
       'MongoDB',
       'LangChain',
       'LangGraph',
-      'LLM Model',
     ],
     links: ['https://artist-hub-lfje.vercel.app/'],
+    category: 'Full stack',
+    kind: 'WEB APPLICATION · AI',
+    detail:
+      'Developed during my internship at MTB Solutions. The application brings together a full-stack web experience and an LLM-based chatbot using LangChain and LangGraph.',
+    visual: 'artist',
   },
   {
     id: 1,
     title: 'SplitIT',
-    description:
-      'Developed Splitit, a seamless expense-splitting app that allows users to effortlessly divide and track shared costs among friends or groups',
-    stack: [
-      'Next.js',
-      'TypeScript',
-      'Convex',
-      'Clerk',
-      'Tailwind CSS',
-    ],
+    description: 'Shared experiences. Simpler shared expenses.',
+    stack: ['Next.js', 'TypeScript', 'Convex', 'Clerk', 'Tailwind CSS'],
     links: ['https://split-it-8w5l.vercel.app/'],
+    category: 'Full stack',
+    kind: 'WEB APPLICATION · FINANCE',
+    detail:
+      'An expense-splitting application for friends and groups. Built to divide and track shared costs, with Convex for application data and Clerk for authentication.',
+    visual: 'split',
   },
   {
     id: 2,
     title: 'Plagiarism WebApp',
-    description:
-      'A web application that detects plagiarism in LeetCode contests.',
+    description: 'A closer look at the code behind the contest.',
     stack: [
       'React.js',
       'Vite',
       'MongoDB',
       'Node.js',
       'Express.js',
-      'Puppeteer API',
+      'Puppeteer',
     ],
     links: ['https://github.com/amey1234444/leetcode-plagiarism-checker'],
+    category: 'Full stack',
+    kind: 'DEVELOPER TOOL · AUTOMATION',
+    detail:
+      'A web application for detecting plagiarism in LeetCode contests. Combines a React interface, a Node.js and Express backend, MongoDB, and Puppeteer-based data collection.',
+    visual: 'code',
   },
   {
     id: 3,
     title: 'Notepad App',
-    description:
-      'A user-friendly note-taking application leveraging Java and Google Firebase.',
-    stack: ['Java', 'Google Firebase', 'Android Studio'],
+    description: 'A small space for your next big idea.',
+    stack: ['Java', 'Firebase', 'Android Studio'],
     links: [],
+    category: 'Mobile',
+    kind: 'ANDROID · PRODUCTIVITY',
+    detail:
+      'A note-taking application built in Java with Google Firebase. Designed around a straightforward way to capture and organize notes on Android.',
+    visual: 'notes',
   },
   {
     id: 4,
     title: 'Facial Emotion Detection',
-    description:
-      'A facial emotion detection system using Python OpenCV and Kaggle dataset.',
+    description: 'Exploring the expressions that make us human.',
     stack: ['Python', 'OpenCV', 'Kaggle Dataset'],
     links: [],
+    category: 'AI & data',
+    kind: 'COMPUTER VISION · EXPERIMENT',
+    detail:
+      'A facial emotion detection project using Python and OpenCV, developed with a dataset from Kaggle to explore visual patterns in human expressions.',
+    visual: 'vision',
   },
   {
     id: 5,
-    title: 'Stock Market Circular Fraud Detection',
-    description:
-      'A system for detecting stock market circular fraud using graph techniques.',
+    title: 'Circular Fraud Detection',
+    description: 'Finding suspicious connections in market data.',
     stack: ['Graph Techniques', 'Python'],
     links: [],
+    category: 'AI & data',
+    kind: 'GRAPH ANALYSIS · FINANCE',
+    detail:
+      'A stock market circular fraud detection project that uses graph techniques in Python to examine relationships and identify circular patterns.',
+    visual: 'graph',
   },
 ]
-
-// export const projects = [
-//   {
-//     id: 0,
-//     title: 'aycan.dev',
-//     description: 'Source code of my portfolio web app.',
-//     stack: ['React.js', 'Next.js', 'TypeScript', 'Mantine'],
-//     links: [
-//       {
-//         link: 'https://github.com/aycanogut/portfolio-next',
-//         id: 1,
-//       },
-//       {
-//         link: 'https://aycan.dev',
-//         id: 2,
-//       },
-//     ],
-//   },
-//   {
-//     id: 1,
-//     title: 'hef.com.tr',
-//     description: 'HEF design and construction company website.',
-//     stack: ['React.js', 'Next.js', 'TypeScript', 'Mantine'],
-//     links: [
-//       {
-//         link: 'https://hef.com.tr',
-//         id: 1,
-//       },
-//     ],
-//   },
-//   {
-//     id: 2,
-//     title: 'Frontend Resources',
-//     description:
-//       'A comprehensive collection of resources for front-end development,.',
-//     stack: ['docusaurus'],
-//     links: [
-//       {
-//         link: 'https://github.com/aycanogut/front-end-resources',
-//         id: 1,
-//       },
-//       {
-//         link: 'https://fe-resources.vercel.app',
-//         id: 2,
-//       },
-//     ],
-//   },
-//   {
-//     id: 3,
-//     title: 'REST Countries API',
-//     description:
-//       'Solution to the REST Countries API with color theme switcher challenge on Frontend Mentor.',
-//     stack: ['React.js', 'TypeScript', 'styled'],
-//     links: [
-//       {
-//         link: 'https://github.com/aycanogut/fem-rest-countries-flag-api',
-//         id: 1,
-//       },
-//       {
-//         link: 'https://fem-rest-countries-flag-api.vercel.app/',
-//         id: 2,
-//       },
-//     ],
-//   },
-//   {
-//     id: 4,
-//     title: 'More E-Commerce',
-//     description: 'React based e-commerce shopping platform with MockAPI.',
-//     stack: ['React.js', 'SASS', 'Redux', 'Firebase'],
-//     links: [
-//       {
-//         link: 'https://github.com/aycanogut/e-commerce-react',
-//         id: 1,
-//       },
-//       {
-//         link: 'https://more-shopping.netlify.app/',
-//         id: 2,
-//       },
-//     ],
-//   },
-//   {
-//     id: 5,
-//     title: 'Social Media Dashboard',
-//     description: 'Responsive grid layout social media theme with theme switch.',
-//     stack: ['JavaScript', 'SASS', 'gulp.js', 'cssnano'],
-//     links: [
-//       {
-//         link: 'https://github.com/aycanogut/fem-social-media-dashboard',
-//         id: 1,
-//       },
-//       {
-//         link: 'https://fem-social-media-dashboard-fawn.vercel.app/',
-//         id: 2,
-//       },
-//     ],
-//   },
-//   {
-//     id: 6,
-//     title: 'Etch-A Sketch',
-//     description: 'A game project for The Odin Projcet task assigment.',
-//     stack: ['HTML', 'CSS', 'JavaScript'],
-//     links: [
-//       {
-//         link: 'https://github.com/aycanogut/odin-project-curriculum/tree/main/fundamentals/etch-a-sketch',
-//         id: 1,
-//       },
-//       {
-//         link: 'https://odin-project-curriculum.vercel.app/fundamentals/etch-a-sketch/index.html',
-//         id: 2,
-//       },
-//     ],
-//   },
-//   {
-//     id: 7,
-//     title: 'Calculator',
-//     description: 'Calculator project for The Odin Projcet task assigment.',
-//     stack: ['HTML', 'CSS', 'JavaScript'],
-//     links: [
-//       {
-//         link: 'https://github.com/aycanogut/odin-project-curriculum/tree/main/fundamentals/calculator',
-//         id: 1,
-//       },
-//       {
-//         link: 'https://odin-project-curriculum.vercel.app/fundamentals/calculator/index.html',
-//         id: 2,
-//       },
-//     ],
-//   },
-//   {
-//     id: 8,
-//     title: 'Rock Paper Scissors',
-//     description: 'A game project for The Odin Projcet task assigment.',
-//     stack: ['HTML', 'CSS', 'JavaScript'],
-//     links: [
-//       {
-//         link: 'https://github.com/aycanogut/odin-project-curriculum/tree/main/fundamentals/rock-paper-scissors',
-//         id: 1,
-//       },
-//       {
-//         link: 'https://odin-project-curriculum.vercel.app/fundamentals/rock-paper-scissors',
-//         id: 2,
-//       },
-//     ],
-//   },
-// ]
