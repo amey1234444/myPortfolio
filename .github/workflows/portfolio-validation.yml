@@ -26,7 +26,7 @@ jobs:
         run: pnpm install --frozen-lockfile
       - name: Type check
         run: pnpm run typecheck
-      - name: Calendar regression tests
-        run: pnpm exec jest src/lib/activity-calendar.test.ts --runInBand
+      - name: Calendar and interaction tests
+        run: pnpm exec jest src/lib/activity-calendar.test.ts src/components/Portfolio/Studio.test.tsx src/components/Portfolio/Portfolio.test.tsx src/components/Header/Header.test.tsx --runInBand
       - name: Production build
         run: pnpm run build

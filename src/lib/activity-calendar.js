@@ -20,6 +20,7 @@ export function normalizeCalendar(counts, dates) {
 }
 
 export function submissionCounts(calendars) {
+  /** @type {Record<string, number>} */
   const counts = {}
   calendars.forEach((calendar) => {
     const parsed = typeof calendar === 'string' ? JSON.parse(calendar) : calendar
