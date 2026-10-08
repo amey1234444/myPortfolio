@@ -6,21 +6,27 @@ import {
 import { NotificationsProvider } from '@mantine/notifications'
 import { TrackingHeadScript } from '@phntms/next-gtm'
 import { Analytics } from '@vercel/analytics/react'
-import { setCookies } from 'cookies-next'
+import { getCookie, setCookies } from 'cookies-next'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { GoogleAnalytics } from 'nextjs-google-analytics'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import GlobalStyles from '../components/GlobalStyles/GlobalStyles'
 import Seo from '../components/Seo/Seo'
 import Spotlight from '../components/Spotlight/Spotlight'
+import '../styles/portfolio.css'
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID || ''
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props
   const [colorScheme, setColorScheme] = useState<ColorScheme>('dark')
+
+  useEffect(() => {
+    const saved = getCookie('mantine-color-scheme')
+    if (saved === 'dark' || saved === 'light') setColorScheme(saved)
+  }, [])
 
   const toggleColorScheme = (value?: ColorScheme) => {
     const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark')
@@ -33,15 +39,17 @@ export default function App(props: AppProps) {
   return (
     <>
       <Head>
-        <title>Amey&apos;s website</title>
+        <meta name="theme-color" content="#111310" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
-        <link rel="shortcut icon" href="/favicon.png" />
+        <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
-      <GoogleAnalytics trackPageViews />
-      <TrackingHeadScript id={GA_TRACKING_ID} />
+      {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+        <GoogleAnalytics trackPageViews />
+      )}
+      {GA_TRACKING_ID && <TrackingHeadScript id={GA_TRACKING_ID} />}
       <Seo />
       <GlobalStyles />
       <ColorSchemeProvider
@@ -49,7 +57,11 @@ export default function App(props: AppProps) {
         toggleColorScheme={toggleColorScheme}
       >
         <MantineProvider
-          theme={{ colorScheme }}
+          theme={{
+            colorScheme,
+            fontFamily: 'Manrope, Arial, sans-serif',
+            primaryColor: 'lime',
+          }}
           withGlobalStyles
           withNormalizeCSS
         >

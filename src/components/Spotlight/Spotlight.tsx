@@ -33,16 +33,6 @@ const Spotlight: FC<ISpotlightProps> = ({ children }) => {
       url: '/projects',
     },
     {
-      title: 'Articles',
-      icon: <Notes />,
-      url: '/articles',
-    },
-    {
-      title: 'Bookmarks',
-      icon: <Bookmarks />,
-      url: '/bookmarks',
-    },
-    {
       title: 'Tools',
       icon: <Tool />,
       url: '/tools',

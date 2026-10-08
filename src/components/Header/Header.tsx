@@ -1,107 +1,136 @@
-import {
-  ActionIcon,
-  Burger,
-  Container,
-  Group,
-  Header as MantineHeader,
-  Paper,
-  Text,
-  Transition,
-} from '@mantine/core'
-import { useBooleanToggle } from '@mantine/hooks'
+import { useMantineColorScheme } from '@mantine/core'
 import { openSpotlight } from '@mantine/spotlight'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import React, { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { IHeaderProps } from '../../interfaces/Header.interface'
-import ColorSchemeToggle from '../ColorSchemeToggle/ColorSchemeToggle'
-import useStyles, { HEADER_HEIGHT } from './Header.styles'
+import { Arrow } from '../Portfolio/Elements'
 
 const Header = ({ links }: IHeaderProps) => {
-  const [opened, toggleOpened] = useBooleanToggle(false)
-  const [_active, setActive] = useState(links[0].link)
-  const { classes, cx } = useStyles()
   const router = useRouter()
+  const [opened, setOpened] = useState(false)
+  const menuButton = useRef<HTMLButtonElement>(null)
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+
+  useEffect(() => {
+    setOpened(false)
+  }, [router.asPath])
+
+  useEffect(() => {
+    if (!opened) return undefined
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpened(false)
+        menuButton.current?.focus()
+      }
+    }
+    document.addEventListener('keydown', close)
+    return () => document.removeEventListener('keydown', close)
+  }, [opened])
 
   return (
-    <MantineHeader height={HEADER_HEIGHT} className={classes.root}>
-      <Container className={classes.header}>
-        <Group spacing={1} className={classes.links}>
+    <header className="site-header">
+      <div className="header-inner">
+        <Link href="/" className="brand" aria-label="Amey Bhagwatkar home">
+          ab<span>.</span>
+        </Link>
+        <nav className="desktop-nav" aria-label="Main navigation">
           {links.map((link) => (
             <Link
-              key={link.label}
               href={link.link}
-              prefetch={false}
-              tabIndex={0}
-              role="link"
-              className={cx(
-                classes.link,
-                router.pathname === link.link ? classes.linkActive : ''
-              )}
-              onClick={() => {
-                setActive(link.link)
-                toggleOpened(false)
-              }}
-              onKeyDown={undefined}
+              key={link.link}
+              aria-current={router.pathname === link.link ? 'page' : undefined}
             >
               {link.label}
             </Link>
           ))}
-        </Group>
-        <Burger
-          opened={opened}
-          onClick={() => toggleOpened()}
-          className={classes.burger}
-          size="md"
-          title="Open navigation"
-          aria-label="Open navigation"
-        />
-        <Transition transition="pop-top-right" duration={200} mounted={opened}>
-          {(styles) => (
-            <Paper className={classes.dropdown} withBorder style={styles}>
-              {links.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.link}
-                  prefetch={false}
-                  tabIndex={0}
-                  role="link"
-                  className={cx(
-                    classes.link,
-                    router.pathname === link.link ? classes.linkActive : ''
-                  )}
-                  onClick={() => {
-                    setActive(link.link)
-                    toggleOpened(false)
-                  }}
-                  onKeyDown={undefined}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </Paper>
-          )}
-        </Transition>
-        <ActionIcon
-          className={classes.spotlight}
-          onClick={() => openSpotlight()}
-          size="lg"
-          radius="sm"
-          aria-label="Spotlight Button"
+        </nav>
+        <div className="header-actions">
+          <button
+            type="button"
+            className="icon-button search-trigger"
+            onClick={() => openSpotlight()}
+            aria-label="Search pages"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle
+                cx="10.5"
+                cy="10.5"
+                r="6.5"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
+              <path d="m16 16 5 5" stroke="currentColor" strokeWidth="1.5" />
+            </svg>
+            <kbd>⌘ K</kbd>
+          </button>
+          <button
+            type="button"
+            className="icon-button theme-trigger"
+            onClick={() => toggleColorScheme()}
+            aria-label={`Switch to ${
+              colorScheme === 'dark' ? 'light' : 'dark'
+            } theme`}
+          >
+            <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true">
+              <circle
+                cx="12"
+                cy="12"
+                r="8"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                fill="none"
+              />
+              <path d="M12 4a8 8 0 0 1 0 16Z" fill="currentColor" />
+            </svg>
+          </button>
+          <a className="header-contact" href="#contact">
+            Let&apos;s talk <Arrow diagonal />
+          </a>
+          <button
+            ref={menuButton}
+            type="button"
+            className={`icon-button menu-toggle ${opened ? 'is-open' : ''}`}
+            aria-label={opened ? 'Close navigation' : 'Open navigation'}
+            aria-expanded={opened}
+            aria-controls="mobile-navigation"
+            onClick={() => setOpened(!opened)}
+          >
+            <span />
+            <span />
+          </button>
+        </div>
+        <nav
+          id="mobile-navigation"
+          className="mobile-nav"
+          aria-label="Mobile navigation"
+          hidden={!opened}
         >
-          <Text size="md" weight={600}>
-            ⌘
-          </Text>
-          &nbsp;<Text>+</Text>&nbsp;
-          <Text size="md" weight={600}>
-            K
-          </Text>
-        </ActionIcon>
-        <ColorSchemeToggle />
-      </Container>
-    </MantineHeader>
+          {links.map((link, i) => (
+            <Link
+              href={link.link}
+              key={link.link}
+              aria-current={router.pathname === link.link ? 'page' : undefined}
+              onClick={() => setOpened(false)}
+            >
+              <span>0{i + 1}</span>
+              {link.label}
+              <Arrow diagonal />
+            </Link>
+          ))}
+          <a href="#contact" onClick={() => setOpened(false)}>
+            Get in touch <Arrow diagonal />
+          </a>
+        </nav>
+      </div>
+    </header>
   )
 }
-
 export default Header
