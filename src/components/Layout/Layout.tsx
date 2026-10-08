@@ -79,42 +79,22 @@ const Layout: FC<ILayoutProps> = ({ children }) => {
       </main>
       <footer className="site-footer" id="contact">
         <div className="container">
-          <div className="contact-heading reveal">
-            <p className="eyebrow">
-              <span className="status-dot" /> A CONVERSATION IS A GOOD START
-            </p>
-            <h2>
-              Have something
-              <br />
-              <span className="serif">in mind?</span>
-              <a
-                href={`mailto:${profile.email}`}
-                className="contact-arrow"
-                aria-label="Email Amey"
-              >
-                <Arrow diagonal />
-              </a>
-            </h2>
-          </div>
-          <div className="contact-links">
-            <div>
-              <a className="email-link" href={`mailto:${profile.email}`}>
-                {profile.email}
-              </a>
-              <button type="button" className="copy-button" onClick={copyEmail}>
-                {copyState}
-              </button>
-              <span className="sr-only" role="status">
-                {copyState !== 'Copy email' ? copyState : ''}
-              </span>
+          <div className="postcard-section-heading"><p className="eyebrow">HAVE A PROJECT, AN IDEA, OR A GOOD QUESTION?</p><span className="handwritten">My inbox is open.</span></div>
+          <div className="contact-postcard reveal">
+            <div className="postcard-message">
+              <p className="eyebrow">A NOTE TO THE NEXT COLLABORATOR</p>
+              <h2>Let&apos;s make<br /><span className="serif">something<br />worth making.</span></h2>
+              <p>Tell me what you&apos;re thinking. I&apos;d love to hear about it.</p>
+              <span className="postcard-signature">Amey.</span>
             </div>
-            <div className="social-links">
-              <a href={profile.github} target="_blank" rel="noreferrer">
-                GitHub <Arrow diagonal />
-              </a>
-              <a href={profile.linkedin} target="_blank" rel="noreferrer">
-                LinkedIn <Arrow diagonal />
-              </a>
+            <div className="postcard-address">
+              <div className="postcard-stamp" aria-hidden="true"><span>✳</span><small>PUNE · INDIA</small></div>
+              <p className="eyebrow">SEND A HELLO TO</p>
+              <a className="email-link" href={`mailto:${profile.email}`}>{profile.email}</a>
+              <button type="button" className="copy-button" onClick={copyEmail}>{copyState}</button>
+              <span className="sr-only" role="status">{copyState !== 'Copy email' ? copyState : ''}</span>
+              <a href={`mailto:${profile.email}`} className="button button-primary">Write to me <Arrow diagonal /></a>
+              <div className="social-links"><a href={profile.github} target="_blank" rel="noreferrer">GitHub <Arrow diagonal /></a><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <Arrow diagonal /></a></div>
             </div>
           </div>
           <div className="footer-bottom">

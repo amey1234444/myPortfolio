@@ -16,12 +16,13 @@ import GlobalStyles from '../components/GlobalStyles/GlobalStyles'
 import Seo from '../components/Seo/Seo'
 import Spotlight from '../components/Spotlight/Spotlight'
 import '../styles/portfolio.css'
+import '../styles/studio.css'
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID || ''
 
 export default function App(props: AppProps) {
   const { Component, pageProps } = props
-  const [colorScheme, setColorScheme] = useState<ColorScheme>('dark')
+  const [colorScheme, setColorScheme] = useState<ColorScheme>('light')
 
   useEffect(() => {
     const saved = getCookie('mantine-color-scheme')
@@ -39,7 +40,7 @@ export default function App(props: AppProps) {
   return (
     <>
       <Head>
-        <meta name="theme-color" content="#111310" />
+        <meta name="theme-color" content={colorScheme === 'dark' ? '#17191d' : '#f6f3ed'} />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
@@ -60,7 +61,7 @@ export default function App(props: AppProps) {
           theme={{
             colorScheme,
             fontFamily: 'Manrope, Arial, sans-serif',
-            primaryColor: 'lime',
+            primaryColor: 'blue',
           }}
           withGlobalStyles
           withNormalizeCSS
