@@ -1,0 +1,32 @@
+name: Portfolio validation
+
+on:
+  push:
+    branches: [feat/portfolio-paper-cobalt]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pnpm
+        run: npm install --global pnpm@10
+      - name: Install locked dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Type check
+        run: pnpm run typecheck
+      - name: Calendar regression tests
+        run: pnpm exec jest src/lib/activity-calendar.test.ts --runInBand
+      - name: Production build
+        run: pnpm run build
