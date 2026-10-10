@@ -22,10 +22,10 @@ describe('Portfolio interactions', () => {
   beforeEach(() => window.localStorage.clear())
   it('filters projects by category and can return to the full collection', () => {
     renderPage(<Projects />)
-    expect(screen.getAllByRole('article')).toHaveLength(6)
+    expect(screen.getAllByRole('article')).toHaveLength(9)
     const filters = screen.getByRole('group', { name: 'Filter projects' })
     fireEvent.click(within(filters).getByRole('button', { name: /AI & data/ }))
-    expect(screen.getAllByRole('article')).toHaveLength(2)
+    expect(screen.getAllByRole('article')).toHaveLength(4)
     expect(
       screen.getByRole('heading', { name: 'Facial Emotion Detection' })
     ).toBeVisible()
@@ -35,7 +35,7 @@ describe('Portfolio interactions', () => {
     fireEvent.click(
       within(filters).getByRole('button', { name: /All projects/ })
     )
-    expect(screen.getAllByRole('article')).toHaveLength(6)
+    expect(screen.getAllByRole('article')).toHaveLength(9)
   })
   it('shows an empty search state and restores the tools when cleared', () => {
     renderPage(<Tools />)

@@ -5,7 +5,7 @@ import { Arrow, SectionHeading } from '../components/Portfolio/Elements'
 import ProjectCard from '../components/Portfolio/ProjectCard'
 import ActivitySection from '../components/Studio/ActivitySection'
 import { AboutBento, StudioHero } from '../components/Studio/Studio'
-import { projects } from '../data/projects'
+import { featuredProjects } from '../data/projects'
 
 export default function HomePage() {
   return (
@@ -14,12 +14,12 @@ export default function HomePage() {
       <section className="container studio-section" id="work">
         <SectionHeading
           number="01"
-          label="A FEW THINGS I'VE BUILT"
+          label="SELECTED WORK"
           title={
             <>
-              Less talking.
+              Built around
               <br />
-              <span className="serif">More making.</span>
+              real problems.
             </>
           }
         >
@@ -27,17 +27,11 @@ export default function HomePage() {
             View all projects <Arrow diagonal />
           </Link>
         </SectionHeading>
-        <div className="project-grid">
-          {projects.slice(0, 2).map((p) => (
+        <div className="project-grid featured-projects">
+          {featuredProjects.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
         </div>
-        <Link href="/projects/2" className="studio-project-row reveal">
-          <span>03 / DEVELOPER TOOLS</span>
-          <h3>Keeping competition fair.</h3>
-          <span>Plagiarism WebApp</span>
-          <Arrow diagonal />
-        </Link>
       </section>
       <section className="container studio-section" id="about">
         <SectionHeading

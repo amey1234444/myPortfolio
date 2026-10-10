@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 export function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
@@ -58,41 +58,6 @@ export function PageIntro({
       <p className="eyebrow">{label}</p>
       <h1>{title}</h1>
       <p className="intro-description">{description}</p>
-    </div>
-  )
-}
-
-export function OrbitalArt() {
-  return (
-    <div className="orbital-art" aria-hidden="true">
-      <div className="orbit-grid" />
-      <span className="art-coordinate coordinate-top">
-        FIG. 01 — ALWAYS IN PROGRESS
-      </span>
-      <div className="orbit-system">
-        {Array.from({ length: 9 }, (_, i) => (
-          <div
-            className="orbit-ring"
-            key={i}
-            style={{ '--ring': i } as CSSProperties}
-          />
-        ))}
-        <div className="orbit-core">
-          <span>ab.</span>
-        </div>
-      </div>
-      <div className="art-note note-top">
-        <span className="tiny-cross">+</span> LOGIC
-      </div>
-      <div className="art-note note-bottom">
-        CRAFT <span className="tiny-cross">+</span>
-      </div>
-      <span className="art-coordinate coordinate-bottom">
-        IDEA → CODE → EXPERIENCE
-      </span>
-      <div className="orbit-label">
-        <span className="status-dot" /> BUILT WITH CURIOSITY
-      </div>
     </div>
   )
 }

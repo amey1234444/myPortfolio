@@ -12,7 +12,11 @@ export default function ProjectDetail({
 }: {
   project: PortfolioProject
 }) {
-  const nextProject = projects[(project.id + 1) % projects.length]
+  const nextProject =
+    projects[
+      (projects.findIndex((item) => item.id === project.id) + 1) %
+        projects.length
+    ]
   return (
     <Layout>
       <Head>
@@ -32,6 +36,12 @@ export default function ProjectDetail({
           title={project.title}
           description={project.description}
         />
+        {project.caseStudy && (
+          <div className="case-study-meta">
+            <span>{project.caseStudy.focus}</span>
+            <span>{project.caseStudy.status}</span>
+          </div>
+        )}
         <ProjectVisual project={project} />
         <p className="project-note">
           Illustrative project artwork · concept visual
@@ -76,6 +86,82 @@ export default function ProjectDetail({
             <p>{project.category}</p>
           </aside>
         </div>
+        {project.caseStudy && (
+          <div className="case-study-body">
+            <section
+              className="case-section case-challenge"
+              aria-labelledby="challenge-heading"
+            >
+              <h2 id="challenge-heading">The problem to solve.</h2>
+              <p>{project.caseStudy.challenge}</p>
+            </section>
+            <section
+              className="case-section"
+              aria-labelledby="capabilities-heading"
+            >
+              <h2 id="capabilities-heading">What the system does.</h2>
+              <div className="capability-grid">
+                {project.caseStudy.capabilities.map((capability) => (
+                  <div key={capability.title}>
+                    <h3>{capability.title}</h3>
+                    <p>{capability.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section className="case-section" aria-labelledby="flow-heading">
+              <h2 id="flow-heading">From start to finish.</h2>
+              <ol className="case-flow">
+                {project.caseStudy.flow.map((step, index) => (
+                  <li key={step.title}>
+                    <span aria-hidden="true">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <div>
+                      <h3>{step.title}</h3>
+                      <p>{step.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
+            <section
+              className="case-section"
+              aria-labelledby="decisions-heading"
+            >
+              <h2 id="decisions-heading">Decisions behind the build.</h2>
+              <div className="case-decisions">
+                {project.caseStudy.decisions.map((decision) => (
+                  <div key={decision.title}>
+                    <h3>{decision.title}</h3>
+                    <p>{decision.description}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section
+              className="case-section case-scope"
+              aria-labelledby="scope-heading"
+            >
+              <h2 id="scope-heading">Current scope.</h2>
+              <p>{project.caseStudy.scope}</p>
+              <div className="case-sources">
+                {project.caseStudy.sources.map((source) => (
+                  <a
+                    className="text-link"
+                    key={source.url}
+                    href={source.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {source.label}
+                    <Arrow diagonal />
+                  </a>
+                ))}
+              </div>
+            </section>
+          </div>
+        )}
         <Link className="next-project" href={`/projects/${nextProject.id}`}>
           <div>
             <p className="eyebrow">NEXT PROJECT</p>

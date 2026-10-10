@@ -15,7 +15,6 @@ import { useEffect, useState } from 'react'
 import GlobalStyles from '../components/GlobalStyles/GlobalStyles'
 import Seo from '../components/Seo/Seo'
 import Spotlight from '../components/Spotlight/Spotlight'
-import '../styles/portfolio.css'
 import '../styles/studio.css'
 
 const GA_TRACKING_ID = process.env.NEXT_PUBLIC_GA_TRACKING_ID || ''

@@ -20,9 +20,9 @@ async function main() {
     }
     const errors = []
     page.on('pageerror', error => errors.push(error.message))
-    for (const width of [1440, 390]) {
+    for (const width of [1440, 768, 360, 390]) {
       await page.setViewportSize({ width, height: 1000 })
-      for (const route of ['/', '/about', '/projects', '/projects/0', '/tools', '/timeline', '/contact']) {
+      for (const route of ['/', '/about', '/projects', '/projects/0', '/projects/6', '/projects/7', '/projects/8', '/tools', '/timeline', '/contact']) {
         await page.goto('http://localhost:3000' + route, { waitUntil: 'domcontentloaded' })
         await waitForContent()
         const overflow = await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1)
@@ -53,8 +53,26 @@ async function main() {
     console.log('SCREENSHOT_DESKTOP=' + (await page.screenshot({ type: 'jpeg', quality: 55 })).toString('base64'))
     await page.locator('#contact').scrollIntoViewIfNeeded()
     console.log('SCREENSHOT_CONTACT=' + (await page.screenshot({ type: 'jpeg', quality: 55 })).toString('base64'))
+    await page.goto('http://localhost:3000', { waitUntil: 'domcontentloaded' })
+    await waitForContent()
+    console.log('SCREENSHOT_FEATURED=' + (await page.locator('#work').screenshot({ type: 'jpeg', quality: 60 })).toString('base64'))
+    for (const [id, title, next] of [[8, 'GRID-X', 6], [6, 'IMG Creator', 7], [7, 'News Platform', 0]]) {
+      await page.goto('http://localhost:3000/projects/' + id, { waitUntil: 'domcontentloaded' })
+      await waitForContent()
+      await page.getByRole('heading', { name: title, exact: true, level: 1 }).waitFor()
+      await page.getByRole('heading', { name: 'Decisions behind the build.' }).waitFor()
+      if (await page.locator('.next-project').getAttribute('href') !== '/projects/' + next) throw new Error('Incorrect next project: ' + title)
+      if (await page.locator('.case-sources a').count() < 3) throw new Error('Missing project evidence: ' + title)
+    }
+    console.log('SCREENSHOT_CASESTUDY=' + (await page.locator('.case-study-body').screenshot({ type: 'jpeg', quality: 55 })).toString('base64'))
+    await page.setViewportSize({ width: 390, height: 1000 })
+    await page.goto('http://localhost:3000/projects/6', { waitUntil: 'domcontentloaded' })
+    await waitForContent()
+    console.log('SCREENSHOT_PROJECT_MOBILE=' + (await page.screenshot({ type: 'jpeg', quality: 60 })).toString('base64'))
+    await page.getByRole('button', { name: 'Switch to dark theme' }).click()
+    console.log('SCREENSHOT_PROJECT_DARK=' + (await page.screenshot({ type: 'jpeg', quality: 60 })).toString('base64'))
     if (errors.length) throw new Error('Uncaught browser errors: ' + errors.join('; '))
-    console.log('BROWSER_CHECKS_PASSED: seven routes at desktop/mobile widths; workbench, carousel, mobile Escape, theme, saved motion; zero uncaught browser errors.')
+    console.log('BROWSER_CHECKS_PASSED: ten routes at 1440/768/360/390 widths; three case studies and next-project navigation; workbench, carousel, mobile Escape, theme, saved motion; zero uncaught browser errors.')
     for (const platform of ['github', 'leetcode']) {
       const response = await fetch('http://localhost:3000/api/activity?platform=' + platform)
       const data = await response.json()

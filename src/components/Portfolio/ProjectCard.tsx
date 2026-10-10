@@ -12,7 +12,71 @@ export function ProjectVisual({ project }: { project: PortfolioProject }) {
       <span className="preview-caption">
         CONCEPT VISUAL / {String(project.id + 1).padStart(2, '0')}
       </span>
-      {project.visual === 'artist' ? (
+      {project.visual === 'gridx' ? (
+        <div className="gridx-art">
+          <div className="gridx-art-top">
+            <b>GRID-X</b>
+            <span>Operations, connected.</span>
+          </div>
+          <div className="gridx-orbit">
+            <span className="gridx-core">
+              G<span>↗</span>
+            </span>
+            <i />
+            <i />
+            <i />
+          </div>
+          <div className="gridx-stages">
+            <span>Plan</span>
+            <span>Produce</span>
+            <span>Inspect</span>
+            <span>Dispatch</span>
+          </div>
+          <p>
+            Every handoff.
+            <br />
+            <strong>One shared system.</strong>
+          </p>
+        </div>
+      ) : project.visual === 'image-studio' ? (
+        <div className="image-studio-art">
+          <div className="image-art-frame frame-back" />
+          <div className="image-art-frame frame-front">
+            <span>img.</span>
+            <i />
+          </div>
+          <div className="image-art-caption">
+            <b>
+              From a prompt
+              <br />
+              to a possibility.
+            </b>
+            <span>Generate · Review · Train</span>
+          </div>
+        </div>
+      ) : project.visual === 'newsroom' ? (
+        <div className="news-art">
+          <div className="news-paper">
+            <div className="news-masthead">The signal.</div>
+            <div className="news-rule" />
+            <b>
+              Make sense
+              <br />
+              of the story.
+            </b>
+            <div className="news-lines">
+              <i />
+              <i />
+              <i />
+            </div>
+            <span>RSS → AI → DELIVERY</span>
+          </div>
+          <div className="news-event">
+            <span>news.refined</span>
+            <b>Ready for the next step ↗</b>
+          </div>
+        </div>
+      ) : project.visual === 'artist' ? (
         <div className="artist-preview">
           <div className="mini-nav">
             <b>
@@ -124,23 +188,34 @@ export default function ProjectCard({
   project: PortfolioProject
 }) {
   return (
-    <article className="project-card reveal">
+    <article
+      className={`project-card reveal ${
+        project.caseStudy ? 'case-study-card' : ''
+      }`}
+    >
       <Link href={`/projects/${project.id}`} className="project-card-link">
         <ProjectVisual project={project} />
-        <div className="project-info">
-          <div>
-            <p className="eyebrow">{project.kind}</p>
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
+        <div className="project-card-copy">
+          <div className="project-info">
+            <div>
+              <p className="eyebrow">{project.kind}</p>
+              <h3>{project.title}</h3>
+              <p>{project.description}</p>
+            </div>
+            <span className="circle-arrow">
+              <Arrow diagonal />
+            </span>
           </div>
-          <span className="circle-arrow">
-            <Arrow diagonal />
-          </span>
-        </div>
-        <div className="tag-list">
-          {project.stack.slice(0, 4).map((tag) => (
-            <span key={tag}>{tag}</span>
-          ))}
+          <div className="tag-list">
+            {project.stack.slice(0, 4).map((tag) => (
+              <span key={tag}>{tag}</span>
+            ))}
+          </div>
+          {project.caseStudy && (
+            <span className="case-study-link">
+              Explore the case study <Arrow diagonal />
+            </span>
+          )}
         </div>
         <span className="sr-only">View project details</span>
       </Link>

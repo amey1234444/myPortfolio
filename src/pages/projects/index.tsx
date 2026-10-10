@@ -17,12 +17,8 @@ export default function Projects() {
       <div className="container page-content">
         <PageIntro
           label="THE PROJECT INDEX / 01"
-          title={
-            <>
-              Built to <span className="serif">do something.</span>
-            </>
-          }
-          description="A collection of applications, experiments, and ideas brought to life through code. Explore the thinking and the technology behind each one."
+          title={<>The work, in detail.</>}
+          description="Manufacturing workflows, image-generation infrastructure and event-driven services. Explore the systems, decisions and code behind the projects."
         />
         <div className="project-controls">
           <div className="filters" role="group" aria-label="Filter projects">
