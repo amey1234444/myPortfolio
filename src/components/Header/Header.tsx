@@ -69,7 +69,7 @@ const Header = ({ links }: IHeaderProps) => {
               />
               <path d="m16 16 5 5" stroke="currentColor" strokeWidth="1.5" />
             </svg>
-            <kbd>⌘ K</kbd>
+            <kbd>⌕</kbd>
           </button>
           <button
             type="button"
