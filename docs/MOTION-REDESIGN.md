@@ -20,3 +20,23 @@ Orbit motion stops when its section leaves the viewport and on pointer/keyboard 
 ## Validation
 
 Tests cover carousel automatic/manual transitions, reduced motion, skill selection, existing calendar/API interactions, filtering and project routes. The browser workflow checks phone, tablet and desktop widths, keyboard navigation, theme and pause persistence, actual animated-letter playback and carousel advancement, and takes screenshots for visual review.
+
+## Experience update — 13 October 2026
+
+The supplied AI / Backend / Full Stack resume is the source for BlackRock
+(Jan–Jun 2026), Intangles (Aug–Dec 2025), and Persistent Systems (Jan–Jun 2025).
+Dates, roles, technologies, contributions and numeric outcomes are transcribed
+or paraphrased from that document; they are user-supplied resume claims, not
+independently verified company metrics. The private resume and offer letters
+are not published as part of this change.
+
+Removed the MTB Solutions block, timeline entry, About attribution and project
+attribution. A shared experience data model now powers the detailed section on
+Home, About and Journey. Navigation includes a direct Experience destination.
+
+The supplied video informs the hand-lettered hierarchy, textured amber/rose/sky
+chapters, staggered entrances and restrained hover movement. Company tabs have
+arrow-key, Home/End and normal Tab navigation; previous/next controls wrap. There
+is no auto-advance while reading. All transitions respect the existing site-wide
+pause and operating-system reduced-motion preferences. All three company labels
+remain visible at narrow widths, without requiring a horizontal swipe.

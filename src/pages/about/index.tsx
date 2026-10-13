@@ -1,3 +1,4 @@
+import Experience from '../../components/Experience/Experience'
 import Layout from '../../components/Layout/Layout'
 import { PageIntro } from '../../components/Portfolio/Elements'
 import ActivitySection from '../../components/Studio/ActivitySection'
@@ -29,8 +30,9 @@ export default function About() {
             </h2>
             <p>
               My engineering background is in Electronics and Telecommunication
-              at VIT Pune. At MTB Solutions, I worked on web applications with
-              React, Express, MongoDB, and conversational AI tools.
+              at VIT Pune. Internships at Persistent Systems, Intangles and
+              BlackRock took me from full-stack interfaces and automated testing
+              to AI analytics and distributed backend services.
             </p>
             <p>
               That mix of engineering and experimentation shapes the way I
@@ -39,6 +41,7 @@ export default function About() {
             </p>
           </div>
         </div>
+        <Experience />
       </div>
       <ActivitySection />
     </Layout>

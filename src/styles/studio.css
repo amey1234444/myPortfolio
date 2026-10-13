@@ -3658,3 +3658,388 @@
     offset-distance: 100%;
   }
 }
+
+/* Experience: a readable, tactile chapter for each team. */
+.portfolio .experience-section {
+  padding-block: clamp(64px, 8vw, 120px);
+  scroll-margin-top: 32px;
+}
+.portfolio .experience-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+.portfolio .experience-heading h2 {
+  font: 700 clamp(64px, 7vw, 104px) / 0.98 var(--display);
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+.portfolio .experience-heading h2 span {
+  background: linear-gradient(
+    transparent 78%,
+    #e4b854 78%,
+    #e4b854 91%,
+    transparent 91%
+  );
+}
+.portfolio .experience-heading > p {
+  max-width: 350px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.portfolio .experience-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.portfolio [data-tone='amber'] {
+  --chapter-paper: #f0c568;
+  --chapter-ink: #352e20;
+}
+.portfolio [data-tone='rose'] {
+  --chapter-paper: #e9b8cb;
+  --chapter-ink: #422936;
+}
+.portfolio [data-tone='sky'] {
+  --chapter-paper: #acd1df;
+  --chapter-ink: #213c47;
+}
+.portfolio .experience-tabs button {
+  position: relative;
+  text-align: left;
+  padding: 22px 24px 26px;
+  border: 1px solid var(--line);
+  border-bottom: 3px solid var(--line);
+  background: var(--surface);
+  color: var(--text);
+  transition: background 300ms, color 300ms, transform 300ms, border-color 300ms;
+}
+.portfolio .experience-tabs button[aria-selected='true'] {
+  background: var(--chapter-paper);
+  color: var(--chapter-ink);
+  border-color: var(--chapter-ink);
+  transform: translateY(-4px);
+}
+.portfolio .experience-tab-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+.portfolio .experience-tabs strong {
+  display: block;
+  font: 700 clamp(29px, 3.2vw, 46px) / 1.12 var(--display);
+  text-transform: uppercase;
+}
+.portfolio .experience-tab-role {
+  display: block;
+  margin-top: 10px;
+  padding-right: 20px;
+  font-size: 11px;
+}
+.portfolio .experience-tab-arrow {
+  position: absolute;
+  right: 18px;
+  bottom: 22px;
+  font-size: 22px;
+  transition: transform 350ms;
+}
+.portfolio .experience-tabs button[aria-selected='true'] .experience-tab-arrow {
+  transform: rotate(45deg);
+}
+.portfolio .experience-panel {
+  border: 1px solid var(--line);
+  box-shadow: 6px 7px 0 var(--surface-raised);
+}
+.portfolio .experience-panel[hidden] {
+  display: none;
+}
+.portfolio .experience-sheet {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  animation: chapter-turn 550ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.portfolio .experience-story {
+  background: var(--chapter-paper) url('/grain.svg');
+  color: var(--chapter-ink);
+  padding: clamp(26px, 3.2vw, 48px);
+}
+.portfolio .experience-story-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.portfolio .experience-stamp {
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  font-weight: 700;
+}
+.portfolio .experience-flower {
+  font-size: 50px;
+  line-height: 1;
+  display: inline-block;
+  transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.portfolio .experience-story h3 {
+  font: 700 clamp(42px, 4.4vw, 64px) / 1.05 var(--display);
+  text-transform: uppercase;
+  margin: 38px 0 24px;
+  max-width: 440px;
+}
+.portfolio .experience-role {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.8;
+}
+.portfolio .experience-role span {
+  font-size: 11px;
+  font-weight: 500;
+}
+.portfolio .experience-summary {
+  font-size: 14px;
+  line-height: 1.85;
+  margin-top: 24px;
+}
+.portfolio .experience-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 32px 0;
+  border-block: 1px solid #302d223b;
+  padding-block: 24px;
+}
+.portfolio .experience-metrics > div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+}
+.portfolio .experience-metrics dd {
+  order: -1;
+  margin: 0;
+  font: 700 clamp(25px, 2.8vw, 38px) / 1.15 var(--display);
+}
+.portfolio .experience-metrics dt {
+  font-size: 10px;
+  line-height: 1.6;
+}
+.portfolio .experience-stack h4 {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0 0 13px;
+}
+.portfolio .experience-stack ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.portfolio .experience-stack li {
+  padding: 5px 9px;
+  font-size: 10px;
+  border: 1px solid #302d2245;
+  border-radius: 3px;
+}
+.portfolio .experience-details {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(26px, 3.2vw, 48px);
+  background: var(--surface);
+}
+.portfolio .experience-details > .eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+}
+.portfolio .experience-details ol {
+  margin: 22px 0 32px;
+  padding: 0;
+  list-style: none;
+}
+.portfolio .experience-details li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 14px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line);
+  animation: chapter-detail 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.portfolio .experience-details li:first-child {
+  padding-top: 0;
+}
+.portfolio .experience-details li > span {
+  font-size: 10px;
+  color: var(--muted);
+  padding-top: 4px;
+}
+.portfolio .experience-details h4 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.portfolio .experience-details li p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+.portfolio .experience-footnote {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.portfolio .experience-footnote > span {
+  font-size: 28px;
+}
+.portfolio .experience-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 28px;
+  font-size: 11px;
+}
+.portfolio .experience-navigation > div {
+  display: flex;
+  gap: 8px;
+}
+.portfolio .experience-navigation button {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text);
+  transition: background 200ms, color 200ms, transform 200ms;
+}
+.portfolio .experience-tabs button:focus-visible {
+  outline-color: var(--text);
+  outline-offset: 4px;
+}
+@media (hover: hover) {
+  .portfolio .experience-tabs button:hover {
+    transform: translateY(-4px);
+    border-color: var(--text);
+  }
+  .portfolio .experience-story:hover .experience-flower {
+    transform: rotate(110deg);
+  }
+  .portfolio .experience-navigation button:hover {
+    transform: translateY(-3px);
+    background: var(--text);
+    color: var(--bg);
+  }
+}
+@keyframes chapter-turn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes chapter-detail {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (max-width: 900px) {
+  .portfolio .experience-sheet {
+    grid-template-columns: 1fr;
+  }
+  .portfolio .experience-story h3 {
+    max-width: 560px;
+  }
+  .portfolio .experience-tabs button {
+    padding: 18px 14px 22px;
+  }
+  .portfolio .experience-tab-role {
+    font-size: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .portfolio .experience-heading {
+    display: block;
+    margin-bottom: 30px;
+  }
+  .portfolio .experience-heading > p {
+    margin-top: 24px;
+    font-size: 13px;
+  }
+  .portfolio .experience-tabs {
+    gap: 6px;
+  }
+  .portfolio .experience-tabs button {
+    padding: 13px 9px 15px;
+  }
+  .portfolio .experience-tab-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    font-size: 8px;
+    margin-bottom: 13px;
+  }
+  .portfolio .experience-tabs strong {
+    font-size: 25px;
+    min-height: 56px;
+  }
+  .portfolio .experience-tab-role {
+    display: none;
+  }
+  .portfolio .experience-tab-arrow {
+    position: static;
+    display: block;
+    font-size: 17px;
+    width: 16px;
+    margin-top: 8px;
+  }
+  .portfolio .experience-story,
+  .portfolio .experience-details {
+    padding: 26px 22px;
+  }
+  .portfolio .experience-story h3 {
+    font-size: 48px;
+    margin-top: 26px;
+  }
+  .portfolio .experience-metrics {
+    gap: 10px;
+  }
+  .portfolio .experience-metrics dd {
+    font-size: 29px;
+  }
+  .portfolio .experience-metrics dt {
+    font-size: 9px;
+  }
+  .portfolio .experience-details li {
+    gap: 10px;
+    grid-template-columns: 18px 1fr;
+  }
+  .portfolio .experience-details h4 {
+    font-size: 15px;
+  }
+  .portfolio .experience-navigation-label {
+    display: none;
+  }
+}

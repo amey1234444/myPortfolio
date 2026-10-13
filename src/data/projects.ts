@@ -319,7 +319,7 @@ export const projects: PortfolioProject[] = [
     category: 'Full stack',
     kind: 'WEB APPLICATION · AI',
     detail:
-      'Developed during my internship at MTB Solutions. The application brings together a full-stack web experience and an LLM-based chatbot using LangChain and LangGraph.',
+      'The application brings together a full-stack web experience and an LLM-based chatbot using LangChain and LangGraph.',
     visual: 'artist',
   },
   {

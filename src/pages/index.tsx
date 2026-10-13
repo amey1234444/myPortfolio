@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import Experience from '../components/Experience/Experience'
 import Layout from '../components/Layout/Layout'
 import ColourHero from '../components/Motion/ColourHero'
 import SkillOrbit from '../components/Motion/SkillOrbit'
@@ -53,6 +54,9 @@ export default function HomePage() {
         </SectionHeading>
         <AboutBento />
       </section>
+      <div className="container">
+        <Experience />
+      </div>
       <SkillOrbit />
       <ActivitySection />
     </Layout>

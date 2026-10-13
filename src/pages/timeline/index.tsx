@@ -1,3 +1,4 @@
+import Experience from '../../components/Experience/Experience'
 import Layout from '../../components/Layout/Layout'
 import { PageIntro } from '../../components/Portfolio/Elements'
 import { milestones } from '../../data/portfolio'
@@ -17,6 +18,7 @@ export default function Timeline() {
           }
           description="Selected milestones from my journey through software development, hands-on projects, and competitive programming."
         />
+        <Experience />
         <div className="journey">
           {milestones.map((item, i) => (
             <article className="journey-item reveal" key={item.title}>

@@ -43,12 +43,6 @@ export const capabilities = [
 
 export const milestones = [
   {
-    date: 'JUN — DEC 2024',
-    title: 'Building for real people.',
-    subtitle: 'Web Developer Intern · MTB Solutions',
-    body: 'Worked on Rythemecca using React.js, Node.js, and MongoDB. Integrated LangChain and LangGraph with Llama 3.3-70B for chatbot functionality, and used Cloudinary to manage 10,000+ image files.',
-  },
-  {
     date: 'APR 2024',
     title: 'Making competition fairer.',
     subtitle: 'Plagiarism WebApp',

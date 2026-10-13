@@ -1,6 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 
 import { activitySummary, calendarDays } from '../../lib/activity'
+import Experience from '../Experience/Experience'
 import { ActivityCard } from './ActivitySection'
 import { ValuesCard } from './Studio'
 
@@ -49,5 +50,41 @@ describe('Studio interactions', () => {
     expect(
       screen.getAllByRole('button').filter((button) => button.tabIndex === 0)
     ).toHaveLength(1)
+  })
+})
+
+describe('Experience navigation', () => {
+  it('supports arrow keys, Home and End while keeping one tab in the tab order', () => {
+    render(<Experience />)
+    const first = screen.getByRole('tab', { name: /BlackRock/ })
+    fireEvent.keyDown(first, { key: 'ArrowRight' })
+    expect(screen.getByRole('tab', { name: /Intangles/ })).toHaveFocus()
+    expect(screen.getByRole('tabpanel')).toHaveAccessibleName(/Intangles/)
+    fireEvent.keyDown(screen.getByRole('tab', { name: /Intangles/ }), {
+      key: 'End',
+    })
+    expect(screen.getByRole('tabpanel')).toHaveAccessibleName(
+      /Persistent Systems/
+    )
+    fireEvent.keyDown(screen.getByRole('tab', { name: /Persistent Systems/ }), {
+      key: 'Home',
+    })
+    expect(first).toHaveFocus()
+    expect(screen.getByRole('tabpanel')).toHaveAccessibleName(/BlackRock/)
+    expect(
+      screen.getAllByRole('tab').filter((tab) => tab.tabIndex === 0)
+    ).toHaveLength(1)
+  })
+  it('wraps previous and next controls and announces the selected experience', () => {
+    render(<Experience />)
+    fireEvent.click(screen.getByRole('button', { name: 'Previous experience' }))
+    expect(screen.getByRole('status')).toHaveTextContent(
+      'Showing Persistent Systems'
+    )
+    fireEvent.click(screen.getByRole('button', { name: 'Next experience' }))
+    expect(screen.getByRole('status')).toHaveTextContent('Showing BlackRock')
+    expect(
+      screen.getByRole('heading', { name: 'Secure, repeatable releases' })
+    ).toBeVisible()
   })
 })

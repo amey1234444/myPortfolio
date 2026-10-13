@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { useState } from 'react'
 
 import { profile } from '../../data/portfolio'
@@ -135,13 +134,20 @@ export function AboutBento() {
           <p>Electronics & Telecommunication · Pune</p>
         </div>
         <div>
-          <small>BUILDING</small>
-          <h3>MTB Solutions</h3>
-          <p>Web Developer Intern · 2024</p>
+          <small>GRADUATED · 2026</small>
+          <h3>
+            Engineering curiosity,
+            <br />
+            put into practice.
+          </h3>
+          <p>
+            From full-stack interfaces to AI applications and distributed
+            systems.
+          </p>
         </div>
-        <Link href="/timeline" className="text-link">
-          Explore my journey <Arrow />
-        </Link>
+        <a href="#experience" className="text-link">
+          Explore my experience <Arrow />
+        </a>
       </section>
       <CuriosityCard />
       <section className="blue-note studio-card reveal">
