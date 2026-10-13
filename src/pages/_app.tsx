@@ -39,7 +39,7 @@ export default function App(props: AppProps) {
   return (
     <>
       <Head>
-        <meta name="theme-color" content="#f7f6f2" />
+        <meta name="theme-color" content="#f7f3e8" />
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"

@@ -7,6 +7,13 @@ export default class _Document extends Document {
         <Head>
           <link
             rel="preload"
+            href="/fonts/amatic-sc-bold-latin.woff"
+            as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
             href="/fonts/manrope-latin-variable.woff2"
             as="font"
             type="font/woff2"

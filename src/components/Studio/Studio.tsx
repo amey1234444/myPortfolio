@@ -4,170 +4,6 @@ import { useState } from 'react'
 import { profile } from '../../data/portfolio'
 import { Arrow } from '../Portfolio/Elements'
 
-const disciplines = [
-  {
-    name: 'Interface',
-    file: 'experience.tsx',
-    code: [
-      'const experience = {',
-      '  thoughtful: true,',
-      '  accessible: true,',
-      '  builtFor: "people",',
-      '};',
-    ],
-    note: 'Small details. A better experience.',
-    tags: ['React', 'Next.js', 'TypeScript'],
-  },
-  {
-    name: 'Systems',
-    file: 'server.ts',
-    code: [
-      'const application = {',
-      '  api: "Express",',
-      '  data: "PostgreSQL",',
-      '  focus: "reliability",',
-      '};',
-    ],
-    note: 'Good interfaces need good foundations.',
-    tags: ['Node.js', 'Express', 'PostgreSQL'],
-  },
-  {
-    name: 'Intelligence',
-    file: 'agent.py',
-    code: [
-      'def build_agent(context):',
-      '    understand(context)',
-      '    retrieve_knowledge()',
-      '    reason_with_tools()',
-      '    return useful_answer',
-    ],
-    note: 'Turning curiosity into useful tools.',
-    tags: ['Python', 'LangChain', 'LangGraph'],
-  },
-]
-
-export function Workbench() {
-  const [selected, setSelected] = useState(0)
-  const item = disciplines[selected]
-  return (
-    <div className="workbench">
-      <div className="bench-top">
-        <span className="window-dots">
-          <i />
-          <i />
-          <i />
-        </span>
-        <span>amey / workbench</span>
-        <span>↗</span>
-      </div>
-      <div
-        className="bench-tabs"
-        role="group"
-        aria-label="Explore my disciplines"
-      >
-        {disciplines.map((d, i) => (
-          <button
-            key={d.name}
-            type="button"
-            aria-pressed={i === selected}
-            onClick={() => setSelected(i)}
-          >
-            {d.name}
-          </button>
-        ))}
-      </div>
-      <div className="bench-code" key={item.file}>
-        <span className="file-label">{item.file}</span>
-        <pre>
-          {item.code.map((line, i) => (
-            <span key={line}>
-              <i aria-hidden="true">0{i + 1}</i>
-              {line}
-              {'\n'}
-            </span>
-          ))}
-        </pre>
-      </div>
-      <div className="bench-result">
-        <span className="result-symbol" aria-hidden="true">
-          ✳
-        </span>
-        <div>
-          <small>THE OUTPUT</small>
-          <p>{item.note}</p>
-        </div>
-      </div>
-      <div className="bench-stack">
-        {item.tags.map((t) => (
-          <span key={t}>{t}</span>
-        ))}
-        <span className="terminal-cursor" aria-hidden="true">
-          ▌
-        </span>
-      </div>
-    </div>
-  )
-}
-
-export function StudioHero() {
-  return (
-    <section className="studio-hero container">
-      <div className="studio-kicker">
-        <span>
-          <i className="status-dot" /> SOFTWARE DEVELOPER, CURIOUS HUMAN
-        </span>
-        <span>PUNE, INDIA ↗</span>
-      </div>
-      <div className="studio-hero-grid">
-        <div className="studio-intro">
-          <p className="handwritten">Hey, I&apos;m Amey.</p>
-          <h1>
-            I build things
-            <br />
-            for the <span className="ink-underline">real world.</span>
-          </h1>
-          <p className="studio-description">
-            Full-stack applications, AI experiments, and the occasional rabbit
-            hole. I like turning a difficult problem into something simple to
-            use.
-          </p>
-          <div className="studio-actions">
-            <Link className="button button-primary" href="/projects">
-              Explore my work <Arrow diagonal />
-            </Link>
-            <Link className="text-link" href="/about">
-              Meet the developer <Arrow />
-            </Link>
-          </div>
-          <div className="hero-personal-note">
-            <span aria-hidden="true">↳</span> Part logic. Part imagination.
-            Always learning.
-          </div>
-        </div>
-        <div className="hero-workbench">
-          <div className="paper-label">FROM IDEA TO INTERACTION ↙</div>
-          <Workbench />
-          <span className="build-sticker">
-            built with
-            <br />
-            <b>curiosity.</b>
-            <span aria-hidden="true">✦</span>
-          </span>
-        </div>
-      </div>
-      <div className="nameplate" aria-hidden="true">
-        <span>AMEY</span>
-        <span>BHAGWATKAR</span>
-        <span className="nameplate-star">✳</span>
-      </div>
-      <div className="hero-colophon">
-        <span>ENGINEERING / DESIGN / EXPERIMENTS</span>
-        <a href="#work">TAKE A LOOK AROUND ↓</a>
-      </div>
-    </section>
-  )
-}
-
 const values = [
   {
     title: 'Make it work.\nThen make it feel right.',
@@ -229,36 +65,25 @@ export function ValuesCard() {
   )
 }
 
-export function TerminalCard() {
+export function CuriosityCard() {
   return (
-    <section className="terminal-card studio-card reveal">
-      <div className="bench-top">
-        <span className="window-dots">
-          <i />
-          <i />
-          <i />
-        </span>
-        <span>amey@portfolio — zsh</span>
-      </div>
-      <div className="terminal-body">
-        <p>
-          <span>~/amey</span> $ cat interests.txt
-        </p>
-        <ul>
-          <li>Full-stack web development</li>
-          <li>AI applications & developer tools</li>
-          <li>Algorithms & competitive programming</li>
-        </ul>
-        <p>
-          <span>~/amey</span> $ ./say_hello
-          <span className="terminal-cursor" aria-hidden="true">
-            ▌
-          </span>
-        </p>
-        <a href={`mailto:${profile.email}`}>
-          Start a conversation <Arrow diagonal />
-        </a>
-      </div>
+    <section className="curiosity-card studio-card reveal">
+      <span className="curiosity-star" aria-hidden="true">
+        ✳
+      </span>
+      <p className="card-kicker">ON MY MIND LATELY</p>
+      <h3>
+        Good questions.
+        <br />
+        Interesting rabbit holes.
+      </h3>
+      <p>
+        AI applications, thoughtful interfaces, and the algorithms underneath
+        them. I like learning by making something real.
+      </p>
+      <a href={`mailto:${profile.email}`} className="text-link">
+        Swap an idea <Arrow diagonal />
+      </a>
     </section>
   )
 }
@@ -318,7 +143,7 @@ export function AboutBento() {
           Explore my journey <Arrow />
         </Link>
       </section>
-      <TerminalCard />
+      <CuriosityCard />
       <section className="blue-note studio-card reveal">
         <span className="card-kicker">OFF THE CRITICAL PATH</span>
         <span className="note-flower" aria-hidden="true">

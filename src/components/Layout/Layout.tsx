@@ -6,12 +6,22 @@ import { profile } from '../../data/portfolio'
 import { ILayoutProps } from '../../interfaces/Layout.interface'
 import { navigation } from '../../routes/navigation'
 import Header from '../Header/Header'
+import { MotionContext } from '../Motion/MotionContext'
 import ContactCard from '../Studio/ContactCard'
 
 const Layout: FC<ILayoutProps> = ({ children }) => {
   const { colorScheme } = useMantineColorScheme()
   const router = useRouter()
   const [paused, setPaused] = useState(false)
+  const [reduced, setReduced] = useState(true)
+  useEffect(() => {
+    if (!window.matchMedia) return undefined
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const update = () => setReduced(media.matches)
+    update()
+    media.addEventListener('change', update)
+    return () => media.removeEventListener('change', update)
+  }, [])
   const [copyState, setCopyState] = useState('Copy email')
 
   useEffect(() => {
@@ -65,44 +75,51 @@ const Layout: FC<ILayoutProps> = ({ children }) => {
   }
 
   return (
-    <div
-      className="portfolio"
-      data-theme={colorScheme}
-      data-motion={paused ? 'paused' : 'running'}
-    >
-      <a className="skip-link" href="#main-content">
-        Skip to content
-      </a>
-      <Header links={navigation} />
-      <main id="main-content" className="site-main" tabIndex={-1}>
-        {children}
-      </main>
-      <footer className="site-footer" id="contact">
-        <div className="container">
-          <ContactCard />
-          <div className="footer-copy-row">
-            <span>Glad our paths crossed.</span>
-            <button type="button" className="copy-button" onClick={copyEmail}>
-              {copyState}
-            </button>
-            <span className="sr-only" role="status">
-              {copyState !== 'Copy email' ? copyState : ''}
-            </span>
+    <MotionContext.Provider value={{ paused, reduced, toggleMotion }}>
+      <div
+        className="portfolio"
+        data-page={router.pathname === '/' ? 'home' : 'inner'}
+        data-theme={colorScheme}
+        data-motion={paused || reduced ? 'paused' : 'running'}
+      >
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
+        <Header links={navigation} />
+        <main id="main-content" className="site-main" tabIndex={-1}>
+          {children}
+        </main>
+        <footer className="site-footer" id="contact">
+          <div className="container">
+            <ContactCard />
+            <div className="footer-copy-row">
+              <span>Glad our paths crossed.</span>
+              <button type="button" className="copy-button" onClick={copyEmail}>
+                {copyState}
+              </button>
+              <span className="sr-only" role="status">
+                {copyState !== 'Copy email' ? copyState : ''}
+              </span>
+            </div>
+            <div className="footer-bottom">
+              <span className="footer-name">
+                © {new Date().getFullYear()} Amey Bhagwatkar
+              </span>
+              <span>From Pune, with curiosity.</span>
+              <button
+                type="button"
+                onClick={toggleMotion}
+                aria-pressed={paused}
+              >
+                {paused ? 'Play animations' : 'Pause animations'}{' '}
+                <span aria-hidden="true">{paused ? '▷' : 'Ⅱ'}</span>
+              </button>
+              <a href="#main-content">Back to top ↑</a>
+            </div>
           </div>
-          <div className="footer-bottom">
-            <span className="footer-name">
-              © {new Date().getFullYear()} Amey Bhagwatkar
-            </span>
-            <span>From Pune, with curiosity.</span>
-            <button type="button" onClick={toggleMotion} aria-pressed={paused}>
-              {paused ? 'Play animations' : 'Pause animations'}{' '}
-              <span aria-hidden="true">{paused ? '▷' : 'Ⅱ'}</span>
-            </button>
-            <a href="#main-content">Back to top ↑</a>
-          </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </MotionContext.Provider>
   )
 }
 export default Layout

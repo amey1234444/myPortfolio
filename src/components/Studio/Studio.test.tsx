@@ -2,20 +2,10 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 
 import { activitySummary, calendarDays } from '../../lib/activity'
 import { ActivityCard } from './ActivitySection'
-import { ValuesCard, Workbench } from './Studio'
+import { ValuesCard } from './Studio'
 
 describe('Studio interactions', () => {
   afterEach(() => jest.restoreAllMocks())
-  it('switches workbench content without an automatic carousel', () => {
-    render(<Workbench />)
-    fireEvent.click(screen.getByRole('button', { name: 'Systems' }))
-    expect(screen.getByText('server.ts')).toBeVisible()
-    expect(screen.getByRole('button', { name: 'Systems' })).toHaveAttribute(
-      'aria-pressed',
-      'true'
-    )
-    expect(screen.queryByText('experience.tsx')).not.toBeInTheDocument()
-  })
   it('cycles values in both directions', () => {
     render(<ValuesCard />)
     fireEvent.click(screen.getByRole('button', { name: 'Previous value' }))

@@ -1,16 +1,18 @@
 import Link from 'next/link'
 
 import Layout from '../components/Layout/Layout'
+import ColourHero from '../components/Motion/ColourHero'
+import SkillOrbit from '../components/Motion/SkillOrbit'
 import { Arrow, SectionHeading } from '../components/Portfolio/Elements'
 import ProjectCard from '../components/Portfolio/ProjectCard'
 import ActivitySection from '../components/Studio/ActivitySection'
-import { AboutBento, StudioHero } from '../components/Studio/Studio'
+import { AboutBento } from '../components/Studio/Studio'
 import { featuredProjects } from '../data/projects'
 
 export default function HomePage() {
   return (
     <Layout>
-      <StudioHero />
+      <ColourHero />
       <section className="container studio-section" id="work">
         <SectionHeading
           number="01"
@@ -51,6 +53,7 @@ export default function HomePage() {
         </SectionHeading>
         <AboutBento />
       </section>
+      <SkillOrbit />
       <ActivitySection />
     </Layout>
   )

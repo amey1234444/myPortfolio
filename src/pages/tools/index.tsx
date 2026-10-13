@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import Layout from '../../components/Layout/Layout'
+import SkillOrbit from '../../components/Motion/SkillOrbit'
 import { Arrow, PageIntro } from '../../components/Portfolio/Elements'
 import tools from '../../data/tools'
 
@@ -11,6 +12,7 @@ export default function Tools() {
   )
   return (
     <Layout>
+      <SkillOrbit />
       <div className="container page-content">
         <PageIntro
           label="THE TOOLBOX / 04"
