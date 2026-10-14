@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { KeyboardEvent, useRef, useState } from 'react'
 
 import { experiences } from '../../data/experience'
@@ -84,6 +85,17 @@ export default function Experience() {
             <span className="experience-tab-meta">
               <span>0{index + 1}</span>
               <span>{item.date}</span>
+            </span>
+            <span className="experience-logo" aria-hidden="true">
+              <Image
+                src={`/logos/${item.id}.${
+                  item.id === 'blackrock' ? 'webp' : 'png'
+                }`}
+                unoptimized
+                alt=""
+                width={160}
+                height={48}
+              />
             </span>
             <strong>{item.company}</strong>
             <span className="experience-tab-role">{item.role}</span>

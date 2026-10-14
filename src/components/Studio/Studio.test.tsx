@@ -3,6 +3,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { activitySummary, calendarDays } from '../../lib/activity'
 import Experience from '../Experience/Experience'
 import { ActivityCard } from './ActivitySection'
+import ContactCard from './ContactCard'
 import { ValuesCard } from './Studio'
 
 describe('Studio interactions', () => {
@@ -86,5 +87,29 @@ describe('Experience navigation', () => {
     expect(
       screen.getByRole('heading', { name: 'Secure, repeatable releases' })
     ).toBeVisible()
+  })
+})
+
+describe('Contact fields', () => {
+  it('keeps accessible labels and submitted values separate from decorative prompts', () => {
+    render(<ContactCard />)
+    const name = screen.getByRole('textbox', { name: '01 / YOUR NAME' })
+    const email = screen.getByRole('textbox', { name: '02 / YOUR EMAIL' })
+    const message = screen.getByRole('textbox', {
+      name: '03 / WHAT’S ON YOUR MIND?',
+    })
+    fireEvent.change(name, { target: { value: 'Amey' } })
+    fireEvent.change(email, { target: { value: 'amey@example.com' } })
+    fireEvent.change(message, { target: { value: 'Hello there' } })
+    expect(name).toHaveValue('Amey')
+    expect(email).toHaveAttribute('autocomplete', 'email')
+    expect(message).toBeRequired()
+    expect(screen.getByText('What should I call you?')).toHaveAttribute(
+      'aria-hidden',
+      'true'
+    )
+    fireEvent.change(name, { target: { value: '' } })
+    expect(name).toHaveValue('')
+    expect(name).toHaveAccessibleName('01 / YOUR NAME')
   })
 })

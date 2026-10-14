@@ -50,7 +50,7 @@ export const experiences = [
   },
   {
     id: 'intangles',
-    company: 'Intangles',
+    company: 'Intangles Labs',
     role: 'AI / Software Engineer Intern',
     team: 'Generative AI & analytics',
     date: 'Aug – Dec 2025',

@@ -40,3 +40,21 @@ arrow-key, Home/End and normal Tab navigation; previous/next controls wrap. Ther
 is no auto-advance while reading. All transitions respect the existing site-wide
 pause and operating-system reduced-motion preferences. All three company labels
 remain visible at narrow widths, without requiring a horizontal swipe.
+
+## Logos and contact interaction — 14 October 2026
+
+Official employer marks are hosted locally, with a white mount to preserve
+contrast in both themes. Selected marks settle into place; hover lifts the
+mount, without altering the artwork. Image dimensions reserve space during
+loading. Adjacent company names provide accessible names without repetition.
+
+Contact fields keep persistent accessible labels and use decorative prompts
+that lift and fade on focus. Prompts remain hidden for entered/autofilled
+values, return for empty blurred fields, and never intercept pointer events.
+A focus underline draws in while typing. CSS state handles clear/reset and
+browser autofill without a second JavaScript value model. Global Pause and OS
+reduced motion disable transitions but preserve every state change.
+
+The newly attached 14 October recording was unavailable in the workspace;
+no claim is made to have examined its frames. The existing design direction
+continues from the previously inspected 13 October references.

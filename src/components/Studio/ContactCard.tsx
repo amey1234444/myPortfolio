@@ -2,6 +2,7 @@ import { FormEvent, useState } from 'react'
 
 import { profile } from '../../data/portfolio'
 import { Arrow } from '../Portfolio/Elements'
+import ContactField from './ContactField'
 
 export default function ContactCard() {
   const [status, setStatus] = useState('')
@@ -59,40 +60,28 @@ export default function ContactCard() {
           <span>TO PUNE, IN</span>
         </div>
         <form onSubmit={compose}>
-          <label htmlFor="contact-name">
-            01 / YOUR NAME
-            <input
-              id="contact-name"
-              name="name"
-              placeholder="What should I call you?"
-              autoComplete="name"
-              required
-              maxLength={100}
-            />
-          </label>
-          <label htmlFor="contact-email">
-            02 / YOUR EMAIL
-            <input
-              id="contact-email"
-              name="email"
-              type="email"
-              placeholder="you@example.com"
-              autoComplete="email"
-              required
-              maxLength={254}
-            />
-          </label>
-          <label htmlFor="contact-message">
-            03 / WHAT&apos;S ON YOUR MIND?
-            <textarea
-              id="contact-message"
-              name="message"
-              placeholder="Tell me a little about it…"
-              rows={4}
-              required
-              maxLength={3000}
-            />
-          </label>
+          <ContactField
+            name="name"
+            label="01 / YOUR NAME"
+            prompt="What should I call you?"
+            autoComplete="name"
+            maxLength={100}
+          />
+          <ContactField
+            name="email"
+            label="02 / YOUR EMAIL"
+            prompt="you@example.com"
+            type="email"
+            autoComplete="email"
+            maxLength={254}
+          />
+          <ContactField
+            name="message"
+            label="03 / WHAT’S ON YOUR MIND?"
+            prompt="Tell me a little about it…"
+            maxLength={3000}
+            multiline
+          />
           <div className="postcard-form-bottom">
             <span>
               Opens your email app.
