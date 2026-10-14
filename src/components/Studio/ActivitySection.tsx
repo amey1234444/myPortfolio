@@ -2,6 +2,7 @@ import { KeyboardEvent, useEffect, useRef, useState } from 'react'
 
 import { profile } from '../../data/portfolio'
 import { ActivityData } from '../../lib/activity'
+import BadgeCollection from '../Badges/BadgeCollection'
 import { Arrow, SectionHeading } from '../Portfolio/Elements'
 
 function Heatmap({ data, platform }: { data: ActivityData; platform: string }) {
@@ -119,7 +120,9 @@ export function ActivityCard({
       .then(async (response) => {
         if (!response.ok) throw new Error('Unavailable')
         const result = await response.json()
-        if (!Array.isArray(result.days) || result.days.length !== 365) throw new Error('Invalid calendar')
+        if (!Array.isArray(result.days) || result.days.length !== 365) {
+          throw new Error('Invalid calendar')
+        }
         if (!disposed) setData(result)
       })
       .catch(() => {
@@ -242,6 +245,7 @@ export default function ActivitySection() {
         GitHub contributions and LeetCode submissions measure different
         activity. Hover, tap, or use arrow keys to explore each calendar.
       </p>
+      <BadgeCollection />
     </section>
   )
 }

@@ -58,3 +58,32 @@ reduced motion disable transitions but preserve every state change.
 The newly attached 14 October recording was unavailable in the workspace;
 no claim is made to have examined its frames. The existing design direction
 continues from the previously inspected 13 October references.
+
+## Badge collection and typography — 14 October 2026
+
+Verified 38 LeetCode badges through the public LeetCode GraphQL profile and
+four achievements on https://github.com/amey1234444?tab=achievements:
+Pair Extraordinaire, Pull Shark, YOLO and Quickdraw. Snapshot metadata is in
+src/data/badges.json, dated 2026-10-14. Official icon URLs are preserved.
+GitHub award dates and tiers are not invented. The platform profile links
+remain available on every badge detail. No unearned/upcoming badges are shown.
+
+The collection is shared by Home and About, alongside the activity calendars.
+Eight selected highlights open the collection; filters expose LeetCode,
+GitHub and the full collection, with 12-at-a-time expansion. Native modal
+details provide focus containment, Escape, close and focus restoration.
+Cards use staggered entrances and artwork lift/glow on hover/focus, governed
+by the existing site-wide Pause and OS reduced-motion settings.
+
+/api/badges refreshes LeetCode on the server with an 8-second timeout and CDN
+caching. Invalid provider data and untrusted image hosts are rejected. A
+failed request keeps the dated verified collection; it never substitutes
+fabricated awards or an empty success. GitHub remains an explicitly dated
+verified snapshot because public profile achievements are not exposed by the
+standard profile API. Badge images have a readable fallback if unavailable.
+
+Manrope now carries navigation, reading headings, project titles, company
+names and metrics, with consistent weights, tighter heading tracking, and
+larger body text. Amatic SC remains on the hero and expressive postcard so
+the supplied design direction keeps its character without compromising
+long-form reading.

@@ -1,0 +1,384 @@
+{
+  "verifiedAt": "2026-10-14",
+  "rating": 1944,
+  "badges": [
+    {
+      "id": "lc-10285453",
+      "name": "Knight",
+      "platform": "leetcode",
+      "category": "Contest",
+      "icon": "https://leetcode.com/static/images/badges/knight.png",
+      "earned": "2026-05-06",
+      "description": "Knight Top 25% site-wide\n(36380 total)"
+    },
+    {
+      "id": "lc-5959844",
+      "name": "500 Days Badge",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/marketing/lg500.png",
+      "earned": "2025-01-11",
+      "description": "500 Days Badge"
+    },
+    {
+      "id": "lc-5623002",
+      "name": "365 Days Badge",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/marketing/lg365.png",
+      "earned": "2024-12-02",
+      "description": "365 Days Badge"
+    },
+    {
+      "id": "lc-10883235",
+      "name": "100 Days Badge 2026",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/others/100_1080_1080.png",
+      "earned": "2026-10-07",
+      "description": "100 Days Badge 2026"
+    },
+    {
+      "id": "lc-9718349",
+      "name": "50 Days Badge 2026",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/others/50_1080_1080.png",
+      "earned": "2026-03-05",
+      "description": "50 Days Badge 2026"
+    },
+    {
+      "id": "lc-8795692",
+      "name": "Annual Badge 2025",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/others/2025_lg.png",
+      "earned": "2025-11-30",
+      "description": "Annual Badge 2025"
+    },
+    {
+      "id": "lc-7658880",
+      "name": "200 Days Badge 2025",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/others/lg200.png",
+      "earned": "2025-07-28",
+      "description": "200 Days Badge 2025"
+    },
+    {
+      "id": "lc-6786030",
+      "name": "100 Days Badge 2025",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/others/lg25100.png",
+      "earned": "2025-04-10",
+      "description": "100 Days Badge 2025"
+    },
+    {
+      "id": "lc-6208146",
+      "name": "50 Days Badge 2025",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/others/lg2550.png",
+      "earned": "2025-02-20",
+      "description": "50 Days Badge 2025"
+    },
+    {
+      "id": "lc-5303436",
+      "name": "Annual Badge 2024",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/marketing/2024-lg.png",
+      "earned": "2024-10-28",
+      "description": "Annual Badge 2024"
+    },
+    {
+      "id": "lc-4442834",
+      "name": "200 Days Badge 2024",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/marketing/2024-200-lg.png",
+      "earned": "2024-07-18",
+      "description": "200 Days Badge 2024"
+    },
+    {
+      "id": "lc-3679007",
+      "name": "100 Days Badge 2024",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/marketing/2024-100-lg.png",
+      "earned": "2024-04-09",
+      "description": "100 Days Badge 2024"
+    },
+    {
+      "id": "lc-3365291",
+      "name": "50 Days Badge 2024",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/marketing/2024-50-lg.png",
+      "earned": "2024-02-19",
+      "description": "50 Days Badge 2024"
+    },
+    {
+      "id": "lc-2771019",
+      "name": "50 Days Badge 2023",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/marketing/lg50.png",
+      "earned": "2023-12-15",
+      "description": "50 Days Badge 2023"
+    },
+    {
+      "id": "lc-2771018",
+      "name": "100 Days Badge 2023",
+      "platform": "leetcode",
+      "category": "Milestone",
+      "icon": "https://assets.leetcode.com/static_assets/marketing/lg100.png",
+      "earned": "2023-12-15",
+      "description": "100 Days Badge 2023"
+    },
+    {
+      "id": "lc-8448703",
+      "name": "Aug LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2025-8.png",
+      "earned": "2025-10-20",
+      "description": "Aug LeetCoding Challenge"
+    },
+    {
+      "id": "lc-7966794",
+      "name": "Jul LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2025-7.png",
+      "earned": "2025-08-31",
+      "description": "Jul LeetCoding Challenge"
+    },
+    {
+      "id": "lc-7392392",
+      "name": "Jun LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2025-6.png",
+      "earned": "2025-06-30",
+      "description": "Jun LeetCoding Challenge"
+    },
+    {
+      "id": "lc-7181936",
+      "name": "May LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2025-5.png",
+      "earned": "2025-05-31",
+      "description": "May LeetCoding Challenge"
+    },
+    {
+      "id": "lc-6920478",
+      "name": "Apr LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2025-4.png",
+      "earned": "2025-04-30",
+      "description": "Apr LeetCoding Challenge"
+    },
+    {
+      "id": "lc-6670764",
+      "name": "Mar LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2025-3.png",
+      "earned": "2025-03-31",
+      "description": "Mar LeetCoding Challenge"
+    },
+    {
+      "id": "lc-6352614",
+      "name": "Feb LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2025-2.png",
+      "earned": "2025-02-28",
+      "description": "Feb LeetCoding Challenge"
+    },
+    {
+      "id": "lc-6091620",
+      "name": "Jan LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2025-1.png",
+      "earned": "2025-01-31",
+      "description": "Jan LeetCoding Challenge"
+    },
+    {
+      "id": "lc-5874649",
+      "name": "Dec LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-12.png",
+      "earned": "2024-12-31",
+      "description": "Dec LeetCoding Challenge"
+    },
+    {
+      "id": "lc-5595498",
+      "name": "Nov LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-11.png",
+      "earned": "2024-11-30",
+      "description": "Nov LeetCoding Challenge"
+    },
+    {
+      "id": "lc-5365381",
+      "name": "Oct LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-10.png",
+      "earned": "2024-10-31",
+      "description": "Oct LeetCoding Challenge"
+    },
+    {
+      "id": "lc-5043730",
+      "name": "Sep LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-9.png",
+      "earned": "2024-09-30",
+      "description": "Sep LeetCoding Challenge"
+    },
+    {
+      "id": "lc-4814731",
+      "name": "Aug LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-8.png",
+      "earned": "2024-08-31",
+      "description": "Aug LeetCoding Challenge"
+    },
+    {
+      "id": "lc-4613565",
+      "name": "Jul LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-7.png",
+      "earned": "2024-07-31",
+      "description": "Jul LeetCoding Challenge"
+    },
+    {
+      "id": "lc-4209428",
+      "name": "Jun LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-6.png",
+      "earned": "2024-06-30",
+      "description": "Jun LeetCoding Challenge"
+    },
+    {
+      "id": "lc-4005957",
+      "name": "May LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-5.png",
+      "earned": "2024-05-31",
+      "description": "May LeetCoding Challenge"
+    },
+    {
+      "id": "lc-3818073",
+      "name": "Apr LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-4.png",
+      "earned": "2024-04-30",
+      "description": "Apr LeetCoding Challenge"
+    },
+    {
+      "id": "lc-3620413",
+      "name": "Mar LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-3.png",
+      "earned": "2024-03-31",
+      "description": "Mar LeetCoding Challenge"
+    },
+    {
+      "id": "lc-3458312",
+      "name": "Feb LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-2.png",
+      "earned": "2024-02-29",
+      "description": "Feb LeetCoding Challenge"
+    },
+    {
+      "id": "lc-3253599",
+      "name": "Jan LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2024-1.png",
+      "earned": "2024-01-31",
+      "description": "Jan LeetCoding Challenge"
+    },
+    {
+      "id": "lc-3146170",
+      "name": "Dec LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2023-12.png",
+      "earned": "2023-12-31",
+      "description": "Dec LeetCoding Challenge"
+    },
+    {
+      "id": "lc-2725087",
+      "name": "Nov LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2023-11.png",
+      "earned": "2023-12-08",
+      "description": "Nov LeetCoding Challenge"
+    },
+    {
+      "id": "lc-2567539",
+      "name": "Oct LeetCoding Challenge",
+      "platform": "leetcode",
+      "category": "Monthly",
+      "icon": "https://leetcode.com/static/images/badges/dcc-2023-10.png",
+      "earned": "2023-10-31",
+      "description": "Oct LeetCoding Challenge"
+    },
+    {
+      "id": "gh-pair-extraordinaire",
+      "name": "Pair Extraordinaire",
+      "platform": "github",
+      "category": "Achievement",
+      "icon": "https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png",
+      "earned": null,
+      "description": "Earned achievement displayed on my public GitHub profile."
+    },
+    {
+      "id": "gh-pull-shark",
+      "name": "Pull Shark",
+      "platform": "github",
+      "category": "Achievement",
+      "icon": "https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png",
+      "earned": null,
+      "description": "Earned achievement displayed on my public GitHub profile."
+    },
+    {
+      "id": "gh-yolo",
+      "name": "YOLO",
+      "platform": "github",
+      "category": "Achievement",
+      "icon": "https://github.githubassets.com/assets/yolo-default-be0bbff04951.png",
+      "earned": null,
+      "description": "Earned achievement displayed on my public GitHub profile."
+    },
+    {
+      "id": "gh-quickdraw",
+      "name": "Quickdraw",
+      "platform": "github",
+      "category": "Achievement",
+      "icon": "https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png",
+      "earned": null,
+      "description": "Earned achievement displayed on my public GitHub profile."
+    }
+  ]
+}
